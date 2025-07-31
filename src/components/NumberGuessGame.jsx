@@ -8,7 +8,7 @@ const NumberGuessGame = () => {
   const [message, setMessage] = useState("");
   const [isWin, setIsWin] = useState(false);
   const [history, setHistory] = useState([]);
-  const MAX_ATTEMPTS = 5;
+  const MAX = 5;
 
   const handleSubmit = () => {
     console.log("타겟:", target);
@@ -24,7 +24,7 @@ const NumberGuessGame = () => {
     if (num === target) {
       setMessage(`🎉 정답! ${target}입니다.`);
       setIsWin(true);
-    } else if (history.length >= MAX_ATTEMPTS - 1) {
+    } else if (history.length >= MAX - 1) {
       setMessage(`기회를 모두 사용했습니다. 정답은 ${target}`);
       setIsWin(true);
     } else if (num < target) {
@@ -48,7 +48,7 @@ const NumberGuessGame = () => {
       <h1 className="text-2xl font-bold">🎯 숫자 맞추기 게임</h1>
       <p className="text-gray-600">1~100 사이의 숫자를 맞춰보세요!</p>
       <p className="text-sm text-gray-500">
-        남은 기회: {MAX_ATTEMPTS - history.length}
+        남은 기회: {MAX - history.length}
       </p>
 
       <input
